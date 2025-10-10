@@ -17,19 +17,15 @@ export interface Configuration {
 
 function getAppSmtpConfig(appName: string): SmtpConfig {
   const prefix = appName.toUpperCase();
-
   const isDevelopment = process.env.NODE_ENV === "development";
 
   return {
-    host: isDevelopment
-      ? process.env.SMTP_HOST || "localhost"
-      : process.env[`${prefix}_SMTP_HOST`] ||
-        process.env.SMTP_HOST ||
-        "localhost",
+    host:
+      process.env[`${prefix}_SMTP_HOST`] ||
+      process.env.SMTP_HOST ||
+      "localhost",
     port: Number(
-      isDevelopment
-        ? process.env.SMTP_PORT || 1025
-        : process.env[`${prefix}_SMTP_PORT`] || process.env.SMTP_PORT || 1025
+      process.env[`${prefix}_SMTP_PORT`] || process.env.SMTP_PORT || 1025
     ),
     user: isDevelopment
       ? undefined
@@ -40,14 +36,11 @@ function getAppSmtpConfig(appName: string): SmtpConfig {
     secure:
       process.env[`${prefix}_SMTP_SECURE`] === "true" ||
       process.env.SMTP_SECURE === "true",
-    from: isDevelopment
-      ? process.env.SMTP_FROM ||
-        process.env.MAIL_FROM ||
-        "no-reply@example.local"
-      : process.env[`${prefix}_MAIL_FROM`] ||
-        process.env.SMTP_FROM ||
-        process.env.MAIL_FROM ||
-        "no-reply@example.local",
+    from:
+      process.env[`${prefix}_MAIL_FROM`] ||
+      process.env.SMTP_FROM ||
+      process.env.MAIL_FROM ||
+      "no-reply@example.local",
   };
 }
 
