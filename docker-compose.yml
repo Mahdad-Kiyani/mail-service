@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025" # Web UI
+      - "1025:1025" # SMTP
+
+  email-service:
+    build: .
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      MAIL_FROM: "Mail Service <no-reply@example.local>"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mailpit

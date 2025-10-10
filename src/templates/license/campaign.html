@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{subject}}</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Vazirmatn", "Tahoma", "Arial", sans-serif;
+        line-height: 1.8;
+        color: #2c3e50;
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        border-bottom: 3px solid #f8f9fa;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 32px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        color: #2c3e50;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+
+      .greeting {
+        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        border-right: 6px solid #2196f3;
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
+      }
+
+      .greeting h2 {
+        color: #1976d2;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .campaign-content {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px 0;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .campaign-content-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 25px;
+        margin: -30px -30px 25px -30px;
+        border-radius: 20px 20px 0 0;
+        font-weight: 600;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .campaign-content-body {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #2c3e50;
+        text-align: justify;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .campaign-content-body h1,
+      .campaign-content-body h2,
+      .campaign-content-body h3,
+      .campaign-content-body h4,
+      .campaign-content-body h5,
+      .campaign-content-body h6 {
+        color: #2c3e50;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .campaign-content-body h1 {
+        font-size: 24px;
+      }
+
+      .campaign-content-body h2 {
+        font-size: 20px;
+      }
+
+      .campaign-content-body h3 {
+        font-size: 18px;
+      }
+
+      .campaign-content-body h4 {
+        font-size: 16px;
+      }
+
+      .campaign-content-body h5,
+      .campaign-content-body h6 {
+        font-size: 14px;
+      }
+
+      .campaign-content-body p {
+        margin-bottom: 15px;
+        line-height: 1.7;
+      }
+
+      .campaign-content-body ul,
+      .campaign-content-body ol {
+        margin-bottom: 15px;
+        padding-right: 20px;
+        line-height: 1.7;
+      }
+
+      .campaign-content-body li {
+        margin-bottom: 8px;
+      }
+
+      .campaign-content-body a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+        word-break: break-all;
+      }
+
+      .campaign-content-body a:hover {
+        text-decoration: underline;
+      }
+
+      .campaign-content-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 15px 0;
+        display: block;
+      }
+
+      .campaign-content-body blockquote {
+        border-right: 4px solid #667eea;
+        padding-right: 20px;
+        margin: 20px 0;
+        font-style: italic;
+        background: rgba(102, 126, 234, 0.05);
+        padding: 15px 20px;
+        border-radius: 8px;
+      }
+
+      .campaign-content-body code {
+        background: #f8f9fa;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        color: #e83e8c;
+      }
+
+      .campaign-content-body pre {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 15px 0;
+        border: 1px solid #e9ecef;
+      }
+
+      .campaign-content-body pre code {
+        background: none;
+        padding: 0;
+        color: #2c3e50;
+      }
+
+      .campaign-content-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .campaign-content-body th,
+      .campaign-content-body td {
+        padding: 12px 15px;
+        text-align: right;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .campaign-content-body th {
+        background: #f8f9fa;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .campaign-content-body tr:hover {
+        background: rgba(102, 126, 234, 0.05);
+      }
+
+      .support-section {
+        background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+        border-right: 6px solid #4caf50;
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+      }
+
+      .support-section p {
+        font-size: 16px;
+        color: #424242;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      .footer {
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 2px solid #e9ecef;
+        font-size: 14px;
+        color: #6c757d;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .footer p {
+        margin: 8px 0;
+      }
+
+      .footer .unsubscribe {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .footer .unsubscribe a {
+        color: #6c757d;
+        text-decoration: none;
+        font-size: 12px;
+      }
+
+      .footer .unsubscribe a:hover {
+        text-decoration: underline;
+      }
+
+      .emoji {
+        font-size: 20px;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        .container {
+          padding: 25px;
+        }
+
+        .title {
+          font-size: 24px;
+        }
+
+        .logo {
+          font-size: 28px;
+        }
+
+        .campaign-content-body {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">{{companyName}}</div>
+        <h1 class="title">{{subject}}</h1>
+      </div>
+
+      <div class="greeting">
+        <h2>
+          <span class="emoji">📢</span>
+          سلام {{firstName}} عزیز!
+        </h2>
+        <p>امیدواریم این پیام را در سلامت کامل دریافت کرده باشید.</p>
+      </div>
+
+      <div class="campaign-content">
+        <div class="campaign-content-header">
+          <span class="emoji">📬</span>
+          محتوای کمپین
+        </div>
+        <div class="campaign-content-body">{{{content}}}</div>
+      </div>
+
+      <div class="support-section">
+        <p>
+          در صورت داشتن هرگونه سوال یا نیاز به راهنمایی، تیم پشتیبانی ما آماده
+          کمک به شما است.
+        </p>
+      </div>
+
+      <div class="footer">
+        <p>
+          این ایمیل به دلیل عضویت شما در لیست مشتریان ارزشمند ما ارسال شده است.
+        </p>
+        <p>در صورت داشتن هرگونه سوال، لطفاً با تیم پشتیبانی ما تماس بگیرید.</p>
+        <div class="unsubscribe">
+          <a href="mailto:support@company.com?subject=لغو عضویت از کمپین‌ها">
+            لغو عضویت از ایمیل‌های کمپین
+          </a>
+        </div>
+        <p>&copy; {{currentYear}} {{companyName}}. تمامی حقوق محفوظ است.</p>
+      </div>
+    </div>
+  </body>
+</html>

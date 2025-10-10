@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{subject}}</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Vazirmatn", "Tahoma", "Arial", sans-serif;
+        line-height: 1.8;
+        color: #2c3e50;
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        border-bottom: 3px solid #f8f9fa;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 32px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        color: #2c3e50;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+
+      .message-section {
+        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        border-right: 6px solid #2196f3;
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
+      }
+
+      .message-section p {
+        font-size: 16px;
+        color: #424242;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      .otp-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 3px dashed #6c757d;
+        padding: 35px;
+        text-align: center;
+        margin: 35px 0;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+
+      .otp-container::before {
+        content: "";
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        bottom: -3px;
+        left: -3px;
+        background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+        border-radius: 20px;
+        z-index: -1;
+        animation: gradientShift 3s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .otp-label {
+        color: #6c757d;
+        font-size: 18px;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .otp-code {
+        font-size: 42px;
+        font-weight: 700;
+        letter-spacing: 12px;
+        color: #2c3e50;
+        font-family: "Courier New", monospace;
+        margin: 20px 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .expiry-info {
+        background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        border-right: 6px solid #ffc107;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 30px 0;
+        color: #856404;
+        box-shadow: 0 5px 15px rgba(255, 193, 7, 0.1);
+      }
+
+      .expiry-info strong {
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .expiry-info p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .warning {
+        background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+        border-right: 6px solid #dc3545;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 30px 0;
+        color: #721c24;
+        box-shadow: 0 5px 15px rgba(220, 53, 69, 0.1);
+      }
+
+      .warning strong {
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .warning p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .support-section {
+        background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+        border-right: 6px solid #4caf50;
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+      }
+
+      .support-section p {
+        font-size: 16px;
+        color: #424242;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      .footer {
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 2px solid #e9ecef;
+        font-size: 14px;
+        color: #6c757d;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .footer p {
+        margin: 8px 0;
+      }
+
+      .emoji {
+        font-size: 20px;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        .container {
+          padding: 25px;
+        }
+
+        .title {
+          font-size: 24px;
+        }
+
+        .logo {
+          font-size: 28px;
+        }
+
+        .otp-code {
+          font-size: 36px;
+          letter-spacing: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">{{companyName}}</div>
+        <h1 class="title">{{title}}</h1>
+      </div>
+
+      <p>سلام،</p>
+
+      <div class="message-section">
+        <p>{{message}}</p>
+      </div>
+
+      <div class="otp-container">
+        <div class="otp-label">کد تأیید شما:</div>
+        <div class="otp-code">{{otpCode}}</div>
+      </div>
+
+      <div class="expiry-info">
+        <strong>
+          <span class="emoji">⏰</span>
+          مهم:
+        </strong>
+        <p>این کد به دلایل امنیتی در مدت 10 دقیقه منقضی می‌شود.</p>
+      </div>
+
+      <div class="warning">
+        <strong>
+          <span class="emoji">🔒</span>
+          اطلاعیه امنیتی:
+        </strong>
+        <p>
+          در صورت عدم درخواست این کد، لطفاً این ایمیل را نادیده بگیرید و این کد
+          را با هیچ‌کس به اشتراک نگذارید.
+        </p>
+      </div>
+
+      <div class="support-section">
+        <p>
+          در صورت داشتن هرگونه سوال یا نیاز به کمک، لطفاً با تیم پشتیبانی ما
+          تماس بگیرید.
+        </p>
+      </div>
+
+      <div class="footer">
+        <p>این یک پیام خودکار است. لطفاً به این ایمیل پاسخ ندهید.</p>
+        <p>&copy; {{currentYear}} {{companyName}}. تمامی حقوق محفوظ است.</p>
+      </div>
+    </div>
+  </body>
+</html>
