@@ -59,7 +59,7 @@ export class MultiTenantMailerService {
       "src",
       "templates",
       appName,
-      `${templateName}.hbs`
+      `${templateName}.html`
     );
     return existsSync(templatePath) ? templatePath : null;
   }
@@ -87,7 +87,7 @@ export class MultiTenantMailerService {
 
     if (!templatePath) {
       throw new NotFoundException(
-        `Template '${appName}/${templateName}.hbs' not found`
+        `Template '${appName}/${templateName}.html' not found`
       );
     }
 
