@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اطلاعات پرداخت سفارش</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Vazirmatn", "Tahoma", "Arial", sans-serif;
+        line-height: 1.8;
+        color: #2c3e50;
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f8f9fa;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 32px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        color: #2c3e50;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 0;
+        line-height: 1.4;
+      }
+
+      .message-section {
+        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        border-right: 4px solid #2196f3;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
+      }
+
+      .message-section p {
+        font-size: 15px;
+        color: #424242;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .message-section p:last-child {
+        margin-bottom: 0;
+      }
+
+      .payment-info {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #6c757d;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .payment-detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(108, 117, 125, 0.2);
+      }
+
+      .payment-detail-item:last-child {
+        border-bottom: none;
+      }
+
+      .payment-detail-label {
+        color: #6c757d;
+        font-size: 15px;
+        font-weight: 600;
+        min-width: 120px;
+      }
+
+      .payment-detail-value {
+        color: #2c3e50;
+        font-size: 15px;
+        font-weight: 600;
+        text-align: left;
+        flex: 1;
+      }
+
+      .payment-detail-value code {
+        background: #ffffff;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        color: #1976d2;
+        border: 1px solid #e0e0e0;
+      }
+
+      .wallet-address {
+        background: #ffffff;
+        border: 2px solid #2196f3;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+        word-break: break-all;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        color: #1976d2;
+        font-weight: 600;
+        text-align: center;
+        direction: ltr;
+        text-align: left;
+      }
+
+      .warning-section {
+        background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+        border-right: 4px solid #d32f2f;
+        padding: 18px;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(211, 47, 47, 0.1);
+      }
+
+      .warning-section p {
+        font-size: 15px;
+        color: #c62828;
+        line-height: 1.6;
+        margin: 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .price-highlight {
+        background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
+        border-right: 3px solid #ff9800;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .price-highlight strong {
+        color: #f57c00;
+        font-size: 18px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .price-highlight span {
+        color: #856404;
+        font-size: 14px;
+      }
+
+      .footer {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+        font-size: 13px;
+        color: #6c757d;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      .footer p {
+        margin: 8px 0;
+      }
+
+      .emoji {
+        font-size: 20px;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        .container {
+          padding: 25px;
+        }
+
+        .logo {
+          font-size: 28px;
+        }
+
+        .title {
+          font-size: 22px;
+        }
+
+        .payment-detail-item {
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .payment-detail-label {
+          min-width: auto;
+        }
+
+        .payment-detail-value {
+          text-align: right;
+        }
+
+        .wallet-address {
+          font-size: 12px;
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">{{companyName}}</div>
+        <h1 class="title">اطلاعات پرداخت سفارش</h1>
+      </div>
+
+      <div class="message-section">
+        <p>سلام {{firstName}}،</p>
+        <p>سفارش شما با موفقیت ایجاد شد. لطفاً مبلغ را به آدرس زیر ارسال کنید:</p>
+      </div>
+
+      <div class="payment-info">
+        <div class="payment-detail-item">
+          <span class="payment-detail-label">شناسه سفارش:</span>
+          <span class="payment-detail-value">
+            <code>{{orderId}}</code>
+          </span>
+        </div>
+
+        <div class="payment-detail-item">
+          <span class="payment-detail-label">محصول:</span>
+          <span class="payment-detail-value">{{productName}}</span>
+        </div>
+
+        <div class="payment-detail-item">
+          <span class="payment-detail-label">مبلغ ({{priceCurrency}}):</span>
+          <span class="payment-detail-value">{{priceAmount}}</span>
+        </div>
+
+        <div class="payment-detail-item">
+          <span class="payment-detail-label">مبلغ ({{payCurrency}}):</span>
+          <span class="payment-detail-value">
+            <div class="price-highlight">
+              <strong>{{payAmount}}</strong>
+              <span>{{payCurrency}}</span>
+            </div>
+          </span>
+        </div>
+
+        <div class="payment-detail-item" style="flex-direction: column; align-items: flex-start;">
+          <span class="payment-detail-label" style="margin-bottom: 10px;">آدرس کیف پول:</span>
+          <div class="wallet-address">{{payAddress}}</div>
+        </div>
+
+        <div class="payment-detail-item">
+          <span class="payment-detail-label">مهلت پرداخت:</span>
+          <span class="payment-detail-value">{{expirationText}}</span>
+        </div>
+      </div>
+
+      <div class="warning-section">
+        <p>
+          <span class="emoji">⚠️</span>
+          لطفاً دقیقاً مبلغ {{payAmount}} {{payCurrency}} را به آدرس بالا ارسال کنید.
+        </p>
+      </div>
+
+      <div class="footer">
+        <p>با تشکر،</p>
+        <p>{{companyName}}</p>
+        <p>&copy; {{currentYear}} {{companyName}}. تمامی حقوق محفوظ است.</p>
+      </div>
+    </div>
+  </body>
+</html>
